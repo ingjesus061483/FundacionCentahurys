@@ -1,25 +1,23 @@
 
 <?php
-$name="contacto"; 
+session_start();
+$name="Contactanos"; 
+include('../shared/DbConfig.php');
+require("../Data/DataAccess.php");
+require('../Data/About.php');
+require('../Data/Contacto.php');
+$classabout=new About($server,$user,$password,$dbname);
+$classcontact=new Contacto($server,$user,$password,$dbname);
+$arr=$classcontact->GetAll();
+$empresa=$classabout->GetValueByname('Empresa')[0];
 include('../shared/head.php');
 ?>
-<style>
-    li {
-        list-style: none;
-    }
-  
-</style>
-
 <div class="card shadow mb-4">    
-    <div class="card-body">
-      
+    <div class="card-body">      
         <ul>
-            <li><i class="fa-brands fa-whatsapp">&nbsp; 57-3003299939 </i>  </li>
-            <li><i class="fa-brands fa-facebook"></i>&nbsp; fundacion centahurys </li>
-            <li><i class="fa-brands fa-instagram"></i> &nbsp; fundacion centahurys</li>
-            <!--<li><i class="fa-brands fa-twitter"></i></li>-->
-            <li><i class="fa-solid fa-envelope"></i>&nbsp;fundación_centahurys@outlook.com </li>
-            <li><i class="fa-brands fa-youtube"></i>&nbsp; fundacion centahuryss</li>
+            <?php foreach($arr as $item){?>
+            <li style ="list-style: none;"><i class="fa-brands fa-<?=$item->nombre?>"></i><?=$item->nombre?>:  &nbsp; <?=$item->valor?>  </li>
+            <?php }?>         
         </ul>
 
     </div>
