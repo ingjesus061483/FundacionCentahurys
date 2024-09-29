@@ -6,14 +6,11 @@ if (!isset($_SESSION["usuario"]))
 $name="Comunidad";
 $classabout=new About($server,$user,$password,$dbname);
 $comunity=new Comunity($server,$dbname,$user,$password);
+$comunity->path=$imgpath;
 $success="";
 if (isset($_POST["enviar"]))
 {
-    //    print_r($_FILES);
-    $comunity->getFile();
-    $comunity->store($_POST);
-    $comunity->MakeDirectory($imgpath);
-    $comunity->UploadFile($imgpath,$success);
+    $comunity->store($_POST);   
 }
 $arr=$comunity->  GetAll();
 $empresa=$classabout->GetValueByname('Empresa')[0];

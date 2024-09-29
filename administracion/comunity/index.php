@@ -3,6 +3,7 @@
 session_start();
 include('../../shared/DbConfig.php');
 require("../../Data/DataAccess.php");
+require("../../Data/File.php");
 require('../../Data/Comunity.php');
 require('../../Data/About.php');
 include('../controller/ComunityController.php');

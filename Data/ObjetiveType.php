@@ -3,22 +3,14 @@ class ObjetiveType extends DataAccess
 {   
     public function __construct($server,$dbname,$user,$password) 
     {
-        try 
-        {            
-            $dsn = "mysql:host=$server;dbname=$dbname";
-            $this->con = new PDO($dsn, $user,$password);
-        }
-        catch (PDOException $e)
-        {
-            echo $e->getMessage();
-            exit();
-        }        
+       $this->AbrirConexion($server,$user,$password,$dbname);
+       $this->arr=[];
     }
  
     function GetAll()
     {
-        $stmt =  $this->Consultar("SELECT * FROM objetive_type");
-        $stmt->execute();
+        $this->arr=[];
+        $stmt =  $this->Consultar("SELECT * FROM objetive_type");  
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
     function Store($request)
