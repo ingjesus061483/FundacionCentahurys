@@ -25,7 +25,14 @@ CREATE TABLE `about` (
   `nombre` varchar(50) NOT NULL,
   `valor` longtext DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `about` */
+
+insert  into `about`(`id`,`nombre`,`valor`) values 
+(6,'Empresa','Fundacion centahurys'),
+(7,'Mision',NULL),
+(8,'Vision',NULL);
 
 /*Table structure for table `comunity` */
 
@@ -40,6 +47,8 @@ CREATE TABLE `comunity` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+/*Data for the table `comunity` */
+
 /*Table structure for table `contact` */
 
 DROP TABLE IF EXISTS `contact`;
@@ -50,6 +59,8 @@ CREATE TABLE `contact` (
   `valor` longtext NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `contact` */
 
 /*Table structure for table `objetive` */
 
@@ -64,6 +75,8 @@ CREATE TABLE `objetive` (
   CONSTRAINT `objetive_ibfk_1` FOREIGN KEY (`tipo_id`) REFERENCES `objetive_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+/*Data for the table `objetive` */
+
 /*Table structure for table `objetive_type` */
 
 DROP TABLE IF EXISTS `objetive_type`;
@@ -72,7 +85,13 @@ CREATE TABLE `objetive_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `objetive_type` */
+
+insert  into `objetive_type`(`id`,`nombre`) values 
+(3,'Objetivos generales'),
+(4,'Objetivos especifico');
 
 /*Table structure for table `user` */
 
@@ -88,7 +107,12 @@ CREATE TABLE `user` (
   `user` varchar(50) NOT NULL,
   `password` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `user` */
+
+insert  into `user`(`id`,`nombre`,`apellido`,`direccion`,`telefono`,`email`,`user`,`password`) values 
+(2,'admin','admin','barranquilla','aaa','admin@example.com','admin','c93ccd78b2076528346216b3b2f701e6');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
