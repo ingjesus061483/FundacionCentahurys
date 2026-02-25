@@ -21,15 +21,15 @@ USE `fundacioncentahurys`;
 DROP TABLE IF EXISTS `about`;
 
 CREATE TABLE `about` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) NOT NULL,
-  `valor` longtext DEFAULT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(50) NOT NULL,
+  `valor` LONGTEXT DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=INNODB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `about` */
 
-insert  into `about`(`id`,`nombre`,`valor`) values 
+INSERT  INTO `about`(`id`,`nombre`,`valor`) VALUES 
 (6,'Empresa','Fundacion centahurys'),
 (7,'Mision',NULL),
 (8,'Vision',NULL);
@@ -39,13 +39,13 @@ insert  into `about`(`id`,`nombre`,`valor`) values
 DROP TABLE IF EXISTS `comunity`;
 
 CREATE TABLE `comunity` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(200) NOT NULL,
-  `tipo` varchar(10) NOT NULL,
-  `descripcion` longtext DEFAULT NULL,
-  `fecha` date NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(200) NOT NULL,
+  `tipo` VARCHAR(10) NOT NULL,
+  `descripcion` LONGTEXT DEFAULT NULL,
+  `fecha` DATE NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=INNODB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `comunity` */
 
@@ -54,60 +54,62 @@ CREATE TABLE `comunity` (
 DROP TABLE IF EXISTS `contact`;
 
 CREATE TABLE `contact` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) NOT NULL,
-  `valor` longtext NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(50) NOT NULL,
+  `valor` LONGTEXT NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=INNODB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `contact` */
+/*Table structure for table `objetive_type` */
+DROP TABLE IF EXISTS `objetive_type`;
+
+CREATE TABLE `objetive_type` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `objetive_type` */
+
+INSERT  INTO `objetive_type`(`id`,`nombre`) VALUES 
+(3,'Objetivos generales'),
+(4,'Objetivos especifico');
+
 
 /*Table structure for table `objetive` */
 
 DROP TABLE IF EXISTS `objetive`;
 
 CREATE TABLE `objetive` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `descripcion` longtext NOT NULL,
-  `tipo_id` int(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` LONGTEXT NOT NULL,
+  `tipo_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `objetive_ibfk_1` (`tipo_id`),
   CONSTRAINT `objetive_ibfk_1` FOREIGN KEY (`tipo_id`) REFERENCES `objetive_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=INNODB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `objetive` */
 
-/*Table structure for table `objetive_type` */
 
-DROP TABLE IF EXISTS `objetive_type`;
 
-CREATE TABLE `objetive_type` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `objetive_type` */
-
-insert  into `objetive_type`(`id`,`nombre`) values 
-(3,'Objetivos generales'),
-(4,'Objetivos especifico');
 
 /*Table structure for table `user` */
 
 DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) NOT NULL,
-  `apellido` varchar(50) NOT NULL,
-  `direccion` varchar(50) NOT NULL,
-  `telefono` varchar(10) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `user` varchar(50) NOT NULL,
-  `password` varchar(200) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(50) NOT NULL,
+  `apellido` VARCHAR(50) NOT NULL,
+  `direccion` VARCHAR(50) NOT NULL,
+  `telefono` VARCHAR(10) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `user` VARCHAR(50) NOT NULL,
+  `password` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=INNODB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `user` */
 
