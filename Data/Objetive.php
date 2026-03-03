@@ -18,7 +18,7 @@ class Objetive extends DataAccess
     {
         $this->arr=[];
         $this -> sql="SELECT obj.id,obj.descripcion,objt.nombre as tipo  
-              FROM objetive as obj join objetive_Type as objt
+              FROM objetive as obj join objetive_type as objt
               ON objt.id=obj.tipo_id ";
         $stmt =  $this->Consultar($this-> sql);        
         return $stmt->fetchAll(PDO::FETCH_OBJ);
